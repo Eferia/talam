@@ -9,18 +9,20 @@ import ville.Ville;
  */
 public class VieilleTour extends Batiment {
 
-	protected VieilleTour(String nom, int coutBois, int coutAcier, int coutPierre, int durabilite,
-			int tempsConstruction, int attractivite) {
-		super(nom, coutBois, coutAcier, coutPierre, durabilite, tempsConstruction, attractivite);
-		// TODO Auto-generated constructor stub
-	}
-	
 	public VieilleTour() {
-		super("Vieille Tour", 0, 0, 0, 0, 0, 1);
+		super("Vieille Tour", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1);
 		//Bâtiment d'histoire
 		this.setDestructible(false);
 		this.setDescription("Une tour mystérieuse qui surplombe la ville, que l'on peut apercevoir lorsque le brouillard se lève. #mystere #magie #ruinedanslebrouillard");
 	}
+	
+	public VieilleTour(int x, int y, int hauteur, int largeur) {
+		super("Vieille Tour", x, y, hauteur, largeur, 0, 0, 0, 0, 0, 1);
+		//Bâtiment d'histoire
+		this.setDestructible(false);
+		this.setDescription("Une tour mystérieuse qui surplombe la ville, que l'on peut apercevoir lorsque le brouillard se lève. #mystere #magie #ruinedanslebrouillard");
+	}
+	
 	
 	@Override
 	public boolean isConstructible() {

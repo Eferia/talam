@@ -3,7 +3,7 @@ package batiments;
 import ressources.Ressource;
 import ville.Ville;
 
-public abstract class Batiment {
+public abstract class Batiment extends ObjetAffiche {
 	
 	private String nom;
 	
@@ -22,7 +22,8 @@ public abstract class Batiment {
 	
 	private String description;
 	
-	protected Batiment(String nom, int coutBois, int coutAcier, int coutPierre, int durabilite, int tempsConstruction, int attractivite) {
+	protected Batiment(String nom, int x, int y, int largeur, int hauteur, int coutBois, int coutAcier, int coutPierre, int durabilite, int tempsConstruction, int attractivite) {
+		super(x, y, largeur, hauteur);
 		this.nom=nom;
 		this.coutBois=coutBois;
 		this.coutAcier=coutAcier;
