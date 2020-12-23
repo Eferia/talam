@@ -32,6 +32,8 @@ public class Ecran extends JPanel {
 	private Image imgPremierPlan;
 	private ImageIcon icoMenu;
 	private Image imgMenu;
+	private ImageIcon icoMenuBas;
+	private Image imgMenuBas;
 	
 	Dimension screenSize;
 	
@@ -41,6 +43,9 @@ public class Ecran extends JPanel {
 	private int xFond4=0;
 	private int xPremierPlan=0;
 	private int xMenu=0;
+	private int xMenuBas=0;
+	
+	private int yMenuBas=850;
 	
 	private int defaultSize = 2000;
 	
@@ -64,6 +69,8 @@ public class Ecran extends JPanel {
         imgPremierPlan = icoPremierPlan.getImage();
 		icoMenu = new ImageIcon(getClass().getResource("/assets/images/fond/menu.png"));
         imgMenu = icoMenu.getImage();
+        icoMenuBas = new ImageIcon(getClass().getResource("/assets/images/fond/menuBas.png"));
+        imgMenuBas = icoMenuBas.getImage();
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         
         this.setFocusable(true);  
@@ -102,6 +109,7 @@ public class Ecran extends JPanel {
  		g2.drawImage(this.imgFond4, this.xFond4, 0, defaultSize*5, (int) screenSize.getHeight(), null);
  		g2.drawImage(this.imgPremierPlan, this.xPremierPlan, 0, defaultSize*6, (int) screenSize.getHeight(), null);
  		g2.drawImage(this.imgMenu, this.xMenu, 0, (int) screenSize.getWidth(), (int) screenSize.getHeight()*17/100, null);
+ 		g2.drawImage(this.imgMenuBas, this.xMenuBas, this.yMenuBas, (int) screenSize.getWidth(), (int) screenSize.getHeight()*17/100, null);
  		
 	}
 	
@@ -122,6 +130,8 @@ public class Ecran extends JPanel {
 	
 	public int getxMenu() {return xMenu;}
 	
+	public int getxMenuBas() {return xMenuBas;}
+	
 	public int getDefaultSize() {return defaultSize;}
 	
 	//**** SETTERS ****//
@@ -140,5 +150,7 @@ public class Ecran extends JPanel {
 	public void setxPremierPlan(int xPremierPlan) {this.xPremierPlan=xPremierPlan;}
 	
 	public void setxMenu(int xMenu) {this.xMenu=xMenu;}
+	
+	public void setxMenuBas(int xMenuBas) {this.xMenu=xMenuBas;}
 
 }
