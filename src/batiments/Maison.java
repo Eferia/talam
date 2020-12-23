@@ -7,9 +7,13 @@ public class Maison extends Batiment {
 	
 	private int popHebergee = 10;
 
-	public Maison(String nom, int coutBois, int coutAcier, int coutPierre, int durabilite, int tempsConstruction,
-			int attractivite) {
-		super("Maison", 20, 10, 30, 1000, 5, 3);
+	public Maison() {
+		super("Maison", 0, 0, 0, 0,  20, 10, 30, 1000, 5, 3);
+		this.setDescription("Ceci n'est pas une maison.");
+	}
+	
+	public Maison(int x, int y, int hauteur, int largeur) {
+		super("Maison", x, y, hauteur, largeur, 20, 10, 30, 1000, 5, 3);
 		this.setDescription("Ceci n'est pas une maison.");
 	}
 

@@ -8,15 +8,13 @@ import ville.Ville;
  *
  */
 public class Ruine extends Batiment {
-
-	protected Ruine(String nom, int coutBois, int coutAcier, int coutPierre, int durabilite, int tempsConstruction,
-			int attractivite) {
-		super(nom, coutBois, coutAcier, coutPierre, durabilite, tempsConstruction, attractivite);
-		// TODO Auto-generated constructor stub
-	}
 	
 	public Ruine() {
-		super("Ruine", 20, 10, 30, 1000, 0, 0);
+		super("Ruine", 0, 0, 0, 0,  20, 10, 30, 1000, 0, 0);
+	}
+	
+	public Ruine(int x, int y, int hauteur, int largeur) {
+		super("Ruine", x, y, hauteur, largeur, 20, 10, 30, 1000, 0, 0);
 	}
 	
 	@Override

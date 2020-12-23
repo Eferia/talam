@@ -16,7 +16,11 @@ public class Entrepot extends Batiment {
 	private int extensionLimitePierre = 50;
 	
 	public Entrepot() {
-		super("Entrepot", 100, 100, 100, 5000, 10, 0);
+		super("Entrepot", 0, 0, 0, 0,  100, 100, 100, 5000, 10, 0);
+	}
+	
+	public Entrepot(int x, int y, int hauteur, int largeur) {
+		super("Entrepot", x, y, hauteur, largeur, 100, 100, 100, 5000, 10, 0);
 	}
 	
 	@Override

@@ -5,7 +5,11 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
+import jeu.Ecran;
+
 public class main {
+	
+	public static Ecran ecran;
 
 	public static void main(String[] args) {
 		
@@ -72,6 +76,8 @@ public class main {
 		fenetre.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		fenetre.setLocationRelativeTo(null);
 		fenetre.setAlwaysOnTop(true);
+		ecran = new Ecran();
+		fenetre.setContentPane(ecran);
 		fenetre.setVisible(true);
 	}
 
