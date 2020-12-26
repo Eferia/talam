@@ -34,6 +34,8 @@ public class Ecran extends JPanel {
 	private Image imgMenu;
 	private ImageIcon icoMenuBas;
 	private Image imgMenuBas;
+	private ImageIcon icoRuine1;
+	private Image imgRuine1;
 	
 	Dimension screenSize;
 	
@@ -44,8 +46,10 @@ public class Ecran extends JPanel {
 	private int xPremierPlan=0;
 	private int xMenu=0;
 	private int xMenuBas=0;
+	private int xRuine1=900;
 	
-	private int yMenuBas=850;
+	private int yMenuBas=860;
+	private int yRuine1=600;
 	
 	private int defaultSize = 2000;
 	
@@ -71,6 +75,8 @@ public class Ecran extends JPanel {
         imgMenu = icoMenu.getImage();
         icoMenuBas = new ImageIcon(getClass().getResource("/assets/images/fond/menuBas.png"));
         imgMenuBas = icoMenuBas.getImage();
+        icoRuine1 = new ImageIcon(getClass().getResource("/assets/images/batiments/ruine1.png"));
+        imgRuine1 = icoRuine1.getImage();
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         
         this.setFocusable(true);  
@@ -92,6 +98,7 @@ public class Ecran extends JPanel {
 			this.xFond3 -= 3*this.dx;
 			this.xFond4 -= 4*this.dx;
 			this.xPremierPlan -= 5*this.dx;
+			this.xRuine1 -= 5*this.dx;
 			for(int i = 0; i < this.tabObjets.size(); i++){this.tabObjets.get(i).deplacement();}			
 		}
 	}
@@ -109,7 +116,8 @@ public class Ecran extends JPanel {
  		g2.drawImage(this.imgFond4, this.xFond4, 0, defaultSize*5, (int) screenSize.getHeight(), null);
  		g2.drawImage(this.imgPremierPlan, this.xPremierPlan, 0, defaultSize*6, (int) screenSize.getHeight(), null);
  		g2.drawImage(this.imgMenu, this.xMenu, 0, (int) screenSize.getWidth(), (int) screenSize.getHeight()*17/100, null);
- 		g2.drawImage(this.imgMenuBas, this.xMenuBas, this.yMenuBas, (int) screenSize.getWidth(), (int) screenSize.getHeight()*17/100, null);
+ 		g2.drawImage(this.imgMenuBas, this.xMenuBas, this.yMenuBas, (int) screenSize.getWidth(), (int) screenSize.getHeight()*15/100, null);
+ 		g2.drawImage(this.imgRuine1, this.xRuine1, this.yRuine1, (int) screenSize.getWidth()*10/100, (int) screenSize.getHeight()*10/100, null);
  		
 	}
 	
@@ -132,6 +140,8 @@ public class Ecran extends JPanel {
 	
 	public int getxMenuBas() {return xMenuBas;}
 	
+	public int getxRuine1() {return xRuine1;}
+	
 	public int getDefaultSize() {return defaultSize;}
 	
 	//**** SETTERS ****//
@@ -152,5 +162,7 @@ public class Ecran extends JPanel {
 	public void setxMenu(int xMenu) {this.xMenu=xMenu;}
 	
 	public void setxMenuBas(int xMenuBas) {this.xMenu=xMenuBas;}
+	
+	public void setxRuine1(int xRuine1) {this.xMenu=xRuine1;}
 
 }

@@ -15,7 +15,7 @@ public class ClavierListener implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int posMax = main.ecran.getDefaultSize();
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT){
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D){
 			main.ecran.setDx(1);
         	if(main.ecran.getxPos() == -1){ 
         		main.ecran.setxPos(0);
@@ -25,7 +25,7 @@ public class ClavierListener implements KeyListener {
         		main.ecran.setxFond4(0);
         		main.ecran.setxPremierPlan(0);
         	}
-		}else if(e.getKeyCode() == KeyEvent.VK_LEFT){	
+		}else if(e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_Q ){	
 			main.ecran.setDx(-1);
 			if(main.ecran.getxPos() == posMax+1){ 
         		main.ecran.setxPos(posMax);
@@ -37,12 +37,11 @@ public class ClavierListener implements KeyListener {
         	}
 		}
 
-
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		if(e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_LEFT){
+		if(e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_Q || e.getKeyCode() == KeyEvent.VK_D){
 			main.ecran.setDx(0);
 		}
 	}
