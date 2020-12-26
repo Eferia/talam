@@ -1,0 +1,9 @@
+espace vide: 62px
+menu de gauche:100px
+4 cases de 344px chacune
+partie du milieu avec le rond: 974px
+4 cases de 344px chacune
+menu de droite: 100px
+espace vide: 62px
+
+total:4050px
