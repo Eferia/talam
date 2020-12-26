@@ -1,7 +1,6 @@
 package elements.monde;
 
 import elements.ObjetAffiche;
-import main.main;
 
 public abstract class Placable extends ObjetAffiche {
 

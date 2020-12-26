@@ -13,8 +13,8 @@ public abstract class ObjetAffiche {
 		protected int x, y; //position de l'objet	
 		protected Image imgObjet;
 		protected ImageIcon icoObjet;
-		protected int hauteurBase = (int) (main.screensize.getHeight()*10/100);
-		protected int largeurBase = (int) (main.screensize.getWidth()*10/100);
+		protected int hauteurBase = (int) (main.screensize.getHeight()*5/100);
+		protected int largeurBase = (int) (main.screensize.getWidth()*5/100);
 		protected int largeur = largeurBase;
 		protected int hauteur = hauteurBase;
 		
