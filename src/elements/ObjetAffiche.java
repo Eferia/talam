@@ -1,4 +1,4 @@
-package batiments;
+package elements;
 
 import java.awt.Image;
 
@@ -9,18 +9,27 @@ import main.main;
 public abstract class ObjetAffiche {
 	
 	//**** VARIABLES ****//
-		private int largeur, hauteur; //dimensions de l'objet
-		private int x, y; //position de l'objet	
+		 //dimensions de l'objet
+		protected int x, y; //position de l'objet	
 		protected Image imgObjet;
 		protected ImageIcon icoObjet;
+		protected int hauteurBase = (int) (main.screensize.getHeight()*10/100);
+		protected int largeurBase = (int) (main.screensize.getWidth()*10/100);
+		protected int largeur = largeurBase;
+		protected int hauteur = hauteurBase;
 		
 		
 		//**** CONSTRUCTEUR ****//	
-		public ObjetAffiche(int x, int y, int largeur, int hauteur){		
+		protected ObjetAffiche(int x, int y, int largeur, int hauteur){		
 		    this.x = x;
 			this.y = y;
 			this.largeur = largeur;
 			this.hauteur = hauteur;
+		}
+		
+		protected ObjetAffiche(int x, int y){		
+		    this.x = x;
+			this.y = y;
 		}
 		
 		
@@ -48,7 +57,7 @@ public abstract class ObjetAffiche {
 		
 		//**** METHODES ****//
 		public void deplacement() {
-			this.setX(this.getX() - main.ecran.getDx());
+			this.setX(this.getX() - 5*main.ecran.getDx());
 		}
 
 }

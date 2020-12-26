@@ -6,10 +6,13 @@ import java.awt.Toolkit;
 import javax.swing.JFrame;
 
 import jeu.Ecran;
+import ville.Ville;
 
 public class main {
 	
 	public static Ecran ecran;
+	public static Ville ville;
+	public static Dimension screensize;
 
 	public static void main(String[] args) {
 		
@@ -69,13 +72,16 @@ public class main {
 //		
 //		System.out.println(Ressource.PIERRE.getQuantite());
 		
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		screensize = Toolkit.getDefaultToolkit().getScreenSize();
 		
 		JFrame fenetre = new JFrame("The PouiGame");
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fenetre.setSize((int) screenSize.getWidth(), (int) screenSize.getHeight());
+		fenetre.setSize((int) screensize.getWidth(), (int) screensize.getHeight());
 		fenetre.setLocationRelativeTo(null);
 		fenetre.setAlwaysOnTop(true);
+		
+		ville = new Ville("test");
+		
 		ecran = new Ecran();
 		fenetre.setContentPane(ecran);
 		fenetre.setVisible(true);
