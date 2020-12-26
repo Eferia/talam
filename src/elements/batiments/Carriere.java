@@ -1,4 +1,4 @@
-package batiments;
+package elements.batiments;
 
 import ressources.Ressource;
 import ville.Ville;

@@ -3,10 +3,14 @@ package ville;
 import java.util.ArrayList;
 import java.util.List;
 
-import batiments.Batiment;
+import elements.batiments.Batiment;
+import elements.batiments.Ruine;
+import elements.batiments.VieilleTour;
 import ressources.Collecte;
 import ressources.Population;
 import ressources.Ressource;
+
+import main.main;
 
 /**
  * Ville
@@ -41,6 +45,13 @@ public class Ville {
 		Ressource.PIERRE.gainRessource(100);
 		
 		limiteBatiments = 30;
+		
+		//Bâtiments de départ
+		batiments.add(new Ruine((int) (main.screensize.getWidth()*70/100), (int) (main.screensize.getHeight()*70/100)));
+		batiments.add(new Ruine((int) (main.screensize.getWidth()*50/100), (int) (main.screensize.getHeight()*60/100)));
+		batiments.add(new Ruine((int) (main.screensize.getWidth()*110/100), (int) (main.screensize.getHeight()*55/100)));
+		//Vieille Tour
+		batiments.add(new VieilleTour((int) (main.screensize.getWidth()*24/100), (int) (main.screensize.getHeight()*30/100)));
 	}
 	
 	/**

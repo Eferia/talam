@@ -1,5 +1,6 @@
-package batiments;
+package elements.batiments;
 
+import elements.ObjetAffiche;
 import ressources.Ressource;
 import ville.Ville;
 
@@ -24,6 +25,18 @@ public abstract class Batiment extends ObjetAffiche {
 	
 	protected Batiment(String nom, int x, int y, int largeur, int hauteur, int coutBois, int coutAcier, int coutPierre, int durabilite, int tempsConstruction, int attractivite) {
 		super(x, y, largeur, hauteur);
+		this.nom=nom;
+		this.coutBois=coutBois;
+		this.coutAcier=coutAcier;
+		this.coutPierre=coutPierre;
+		this.durabilite=durabilite;
+		this.setTempsConstruction(tempsConstruction);
+		this.attractivite=attractivite;
+		this.description="Ceci n'est pas un(e) "+nom;
+	}
+	
+	protected Batiment(String nom, int x, int y, int coutBois, int coutAcier, int coutPierre, int durabilite, int tempsConstruction, int attractivite) {
+		super(x, y);
 		this.nom=nom;
 		this.coutBois=coutBois;
 		this.coutAcier=coutAcier;

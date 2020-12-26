@@ -6,11 +6,15 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-import batiments.ObjetAffiche;
+import elements.ObjetAffiche;
+import elements.monde.Arbre;
+import main.main;
+import ville.Ville;
 
 public class Ecran extends JPanel {
 	
@@ -56,7 +60,7 @@ public class Ecran extends JPanel {
 	private int dx=0; // déplacement horizontal du fond d'écran.
 	private int xPos=0; // position de l'observateur
 	
-	private ArrayList<ObjetAffiche> tabObjets = new ArrayList<>(); //liste des objets à afficher
+	private List<ObjetAffiche> tabObjets = new ArrayList<>(); //liste des objets à afficher
 	
 	public Ecran() {
 		super ();
@@ -79,6 +83,8 @@ public class Ecran extends JPanel {
         imgRuine1 = icoRuine1.getImage();
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         
+        createArbres();
+        
         this.setFocusable(true);  
 		this.requestFocusInWindow();
 		this.addKeyListener(new ClavierListener());
@@ -99,7 +105,8 @@ public class Ecran extends JPanel {
 			this.xFond4 -= 4*this.dx;
 			this.xPremierPlan -= 5*this.dx;
 			this.xRuine1 -= 5*this.dx;
-			for(int i = 0; i < this.tabObjets.size(); i++){this.tabObjets.get(i).deplacement();}			
+			for(int i = 0; i < this.tabObjets.size(); i++){this.tabObjets.get(i).deplacement();}	
+			for(int i = 0; i < Ville.getBatiments().size(); i++){Ville.getBatiments().get(i).deplacement();}
 		}
 	}
 	
@@ -115,10 +122,112 @@ public class Ecran extends JPanel {
  		g2.drawImage(this.imgFond3, this.xFond3, 0, defaultSize*4, (int) screenSize.getHeight(), null);
  		g2.drawImage(this.imgFond4, this.xFond4, 0, defaultSize*5, (int) screenSize.getHeight(), null);
  		g2.drawImage(this.imgPremierPlan, this.xPremierPlan, 0, defaultSize*6, (int) screenSize.getHeight(), null);
+		
+ 		//Afficher les objets du décor
+ 		for(ObjetAffiche objet : tabObjets) {
+ 			g2.drawImage(objet.getImgObjet(), objet.getX(), objet.getY(), objet.getLargeur(), objet.getHauteur(), null);
+ 		}
+ 		//Afficher les bâtiments
+ 		for(ObjetAffiche objet : Ville.getBatiments()) {
+ 			g2.drawImage(objet.getImgObjet(), objet.getX(), objet.getY(), objet.getLargeur(), objet.getHauteur(), null);
+ 		}
+ 		
+ 		//Afficher les menus
+ 		//laisser en dernier
  		g2.drawImage(this.imgMenu, this.xMenu, 0, (int) screenSize.getWidth(), (int) screenSize.getHeight()*17/100, null);
  		g2.drawImage(this.imgMenuBas, this.xMenuBas, this.yMenuBas, (int) screenSize.getWidth(), (int) screenSize.getHeight()*15/100, null);
- 		g2.drawImage(this.imgRuine1, this.xRuine1, this.yRuine1, (int) screenSize.getWidth()*10/100, (int) screenSize.getHeight()*10/100, null);
  		
+	}
+	
+	public void createArbres() {
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*80/100), (int) (main.screensize.getHeight()*40/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*81/100), (int) (main.screensize.getHeight()*40/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*81/100), (int) (main.screensize.getHeight()*42/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*82/100), (int) (main.screensize.getHeight()*40/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*82/100), (int) (main.screensize.getHeight()*42/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*82/100), (int) (main.screensize.getHeight()*43/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*83/100), (int) (main.screensize.getHeight()*43/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*83/100), (int) (main.screensize.getHeight()*45/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*83/100), (int) (main.screensize.getHeight()*46/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*85/100), (int) (main.screensize.getHeight()*48/100)));
+        //10
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*85/100), (int) (main.screensize.getHeight()*47/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*86/100), (int) (main.screensize.getHeight()*45/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*88/100), (int) (main.screensize.getHeight()*42/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*88/100), (int) (main.screensize.getHeight()*45/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*90/100), (int) (main.screensize.getHeight()*47/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*90/100), (int) (main.screensize.getHeight()*48/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*91/100), (int) (main.screensize.getHeight()*44/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*91/100), (int) (main.screensize.getHeight()*45/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*92/100), (int) (main.screensize.getHeight()*49/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*93/100), (int) (main.screensize.getHeight()*45/100)));
+        //20
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*80/100), (int) (main.screensize.getHeight()*50/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*81/100), (int) (main.screensize.getHeight()*50/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*81/100), (int) (main.screensize.getHeight()*52/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*82/100), (int) (main.screensize.getHeight()*53/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*82/100), (int) (main.screensize.getHeight()*54/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*82/100), (int) (main.screensize.getHeight()*55/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*83/100), (int) (main.screensize.getHeight()*55/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*83/100), (int) (main.screensize.getHeight()*56/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*83/100), (int) (main.screensize.getHeight()*57/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*85/100), (int) (main.screensize.getHeight()*50/100)));
+        //10
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*85/100), (int) (main.screensize.getHeight()*57/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*86/100), (int) (main.screensize.getHeight()*52/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*88/100), (int) (main.screensize.getHeight()*58/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*88/100), (int) (main.screensize.getHeight()*60/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*90/100), (int) (main.screensize.getHeight()*60/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*90/100), (int) (main.screensize.getHeight()*65/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*91/100), (int) (main.screensize.getHeight()*63/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*91/100), (int) (main.screensize.getHeight()*66/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*92/100), (int) (main.screensize.getHeight()*69/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*93/100), (int) (main.screensize.getHeight()*71/100)));
+        //20
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*94/100), (int) (main.screensize.getHeight()*57/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*94/100), (int) (main.screensize.getHeight()*52/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*95/100), (int) (main.screensize.getHeight()*58/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*96/100), (int) (main.screensize.getHeight()*60/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*96/100), (int) (main.screensize.getHeight()*60/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*97/100), (int) (main.screensize.getHeight()*65/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*97/100), (int) (main.screensize.getHeight()*63/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*97/100), (int) (main.screensize.getHeight()*66/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*97/100), (int) (main.screensize.getHeight()*69/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*98/100), (int) (main.screensize.getHeight()*71/100)));
+        //30
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*98/100), (int) (main.screensize.getHeight()*57/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*99/100), (int) (main.screensize.getHeight()*52/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*100/100), (int) (main.screensize.getHeight()*58/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*100/100), (int) (main.screensize.getHeight()*60/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*101/100), (int) (main.screensize.getHeight()*60/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*101/100), (int) (main.screensize.getHeight()*65/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*102/100), (int) (main.screensize.getHeight()*63/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*103/100), (int) (main.screensize.getHeight()*66/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*103/100), (int) (main.screensize.getHeight()*69/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*103/100), (int) (main.screensize.getHeight()*71/100)));
+        //40
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*94/100), (int) (main.screensize.getHeight()*77/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*94/100), (int) (main.screensize.getHeight()*72/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*95/100), (int) (main.screensize.getHeight()*78/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*96/100), (int) (main.screensize.getHeight()*80/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*96/100), (int) (main.screensize.getHeight()*80/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*97/100), (int) (main.screensize.getHeight()*85/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*97/100), (int) (main.screensize.getHeight()*83/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*97/100), (int) (main.screensize.getHeight()*86/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*97/100), (int) (main.screensize.getHeight()*89/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*98/100), (int) (main.screensize.getHeight()*91/100)));
+        //50
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*98/100), (int) (main.screensize.getHeight()*77/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*99/100), (int) (main.screensize.getHeight()*72/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*100/100), (int) (main.screensize.getHeight()*78/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*100/100), (int) (main.screensize.getHeight()*80/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*101/100), (int) (main.screensize.getHeight()*80/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*101/100), (int) (main.screensize.getHeight()*85/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*102/100), (int) (main.screensize.getHeight()*83/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*103/100), (int) (main.screensize.getHeight()*86/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*103/100), (int) (main.screensize.getHeight()*89/100)));
+        tabObjets.add(new Arbre((int) (main.screensize.getWidth()*103/100), (int) (main.screensize.getHeight()*91/100)));
+        //60
 	}
 	
 	//**** GETTERS ****//	
@@ -144,6 +253,10 @@ public class Ecran extends JPanel {
 	
 	public int getDefaultSize() {return defaultSize;}
 	
+	public Dimension getScreenSize() {return screenSize;}
+	
+	public List<ObjetAffiche> getTabObjets(){return tabObjets;}
+	
 	//**** SETTERS ****//
 	public void setDx(int dx) {this.dx = dx;}
 
@@ -164,5 +277,15 @@ public class Ecran extends JPanel {
 	public void setxMenuBas(int xMenuBas) {this.xMenu=xMenuBas;}
 	
 	public void setxRuine1(int xRuine1) {this.xMenu=xRuine1;}
+	
+	public void setTabObjets(List<ObjetAffiche> liste) {this.tabObjets = liste;}
+	
+	public void mergeTabObjets(List<ObjetAffiche> liste) {
+		for(ObjetAffiche objet:liste) {
+			if(!tabObjets.contains(objet)) {
+				tabObjets.add(objet);
+			}
+		}
+	}
 
 }

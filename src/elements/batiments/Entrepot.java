@@ -1,4 +1,6 @@
-package batiments;
+package elements.batiments;
+
+import javax.swing.ImageIcon;
 
 import ressources.Ressource;
 import ville.Ville;
@@ -17,10 +19,14 @@ public class Entrepot extends Batiment {
 	
 	public Entrepot() {
 		super("Entrepot", 0, 0, 0, 0,  100, 100, 100, 5000, 10, 0);
+		this.icoObjet = new ImageIcon(getClass().getResource("/assets/images/batiments/entrepot1.png"));
+		this.imgObjet = icoObjet.getImage();
 	}
 	
 	public Entrepot(int x, int y, int hauteur, int largeur) {
 		super("Entrepot", x, y, hauteur, largeur, 100, 100, 100, 5000, 10, 0);
+		this.icoObjet = new ImageIcon(getClass().getResource("/assets/images/batiments/entrepot1.png"));
+		this.imgObjet = icoObjet.getImage();
 	}
 	
 	@Override
