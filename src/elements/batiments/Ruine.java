@@ -12,6 +12,7 @@ import ville.Ville;
 public class Ruine extends Batiment {
 	
 	private String image1 = "/assets/images/batiments/ruine1.png";
+	private String imageClick1 = "";
 	private String image2 = "/assets/images/batiments/ruine2.png";
 	
 	public Ruine() {

@@ -38,8 +38,6 @@ public class Ecran extends JPanel {
 	private Image imgMenu;
 	private ImageIcon icoMenuBas;
 	private Image imgMenuBas;
-	private ImageIcon icoRuine1;
-	private Image imgRuine1;
 	
 	Dimension screenSize;
 	
@@ -50,10 +48,8 @@ public class Ecran extends JPanel {
 	private int xPremierPlan=0;
 	private int xMenu=0;
 	private int xMenuBas=0;
-	private int xRuine1=900;
 	
 	private int yMenuBas=860;
-	private int yRuine1=600;
 	
 	private int defaultSize = 2000;
 	
@@ -79,8 +75,6 @@ public class Ecran extends JPanel {
         imgMenu = icoMenu.getImage();
         icoMenuBas = new ImageIcon(getClass().getResource("/assets/images/fond/menuBas.png"));
         imgMenuBas = icoMenuBas.getImage();
-        icoRuine1 = new ImageIcon(getClass().getResource("/assets/images/batiments/ruine1.png"));
-        imgRuine1 = icoRuine1.getImage();
         screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         
         createArbres();
@@ -88,6 +82,8 @@ public class Ecran extends JPanel {
         this.setFocusable(true);  
 		this.requestFocusInWindow();
 		this.addKeyListener(new ClavierListener());
+		
+		this.defaultSize = (int) main.screensize.getWidth();
 		
 		Thread timer = new Thread(new Timer());
 		timer.start();
@@ -104,7 +100,6 @@ public class Ecran extends JPanel {
 			this.xFond3 -= 3*this.dx;
 			this.xFond4 -= 4*this.dx;
 			this.xPremierPlan -= 5*this.dx;
-			this.xRuine1 -= 5*this.dx;
 			for(int i = 0; i < this.tabObjets.size(); i++){this.tabObjets.get(i).deplacement();}	
 			for(int i = 0; i < Ville.getBatiments().size(); i++){Ville.getBatiments().get(i).deplacement();}
 		}
@@ -172,7 +167,7 @@ public class Ecran extends JPanel {
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*83/100), (int) (main.screensize.getHeight()*56/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*83/100), (int) (main.screensize.getHeight()*57/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*85/100), (int) (main.screensize.getHeight()*50/100)));
-        //10
+        //30
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*85/100), (int) (main.screensize.getHeight()*57/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*86/100), (int) (main.screensize.getHeight()*52/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*88/100), (int) (main.screensize.getHeight()*58/100)));
@@ -183,7 +178,7 @@ public class Ecran extends JPanel {
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*91/100), (int) (main.screensize.getHeight()*66/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*92/100), (int) (main.screensize.getHeight()*69/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*93/100), (int) (main.screensize.getHeight()*71/100)));
-        //20
+        //40
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*94/100), (int) (main.screensize.getHeight()*57/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*94/100), (int) (main.screensize.getHeight()*52/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*95/100), (int) (main.screensize.getHeight()*58/100)));
@@ -194,7 +189,7 @@ public class Ecran extends JPanel {
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*97/100), (int) (main.screensize.getHeight()*66/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*97/100), (int) (main.screensize.getHeight()*69/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*98/100), (int) (main.screensize.getHeight()*71/100)));
-        //30
+        //50
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*98/100), (int) (main.screensize.getHeight()*57/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*99/100), (int) (main.screensize.getHeight()*52/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*100/100), (int) (main.screensize.getHeight()*58/100)));
@@ -205,7 +200,7 @@ public class Ecran extends JPanel {
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*103/100), (int) (main.screensize.getHeight()*66/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*103/100), (int) (main.screensize.getHeight()*69/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*103/100), (int) (main.screensize.getHeight()*71/100)));
-        //40
+        //60
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*94/100), (int) (main.screensize.getHeight()*77/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*94/100), (int) (main.screensize.getHeight()*72/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*95/100), (int) (main.screensize.getHeight()*78/100)));
@@ -216,7 +211,7 @@ public class Ecran extends JPanel {
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*97/100), (int) (main.screensize.getHeight()*86/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*97/100), (int) (main.screensize.getHeight()*89/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*98/100), (int) (main.screensize.getHeight()*91/100)));
-        //50
+        //70
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*98/100), (int) (main.screensize.getHeight()*77/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*99/100), (int) (main.screensize.getHeight()*72/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*100/100), (int) (main.screensize.getHeight()*78/100)));
@@ -227,7 +222,7 @@ public class Ecran extends JPanel {
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*103/100), (int) (main.screensize.getHeight()*86/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*103/100), (int) (main.screensize.getHeight()*89/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*103/100), (int) (main.screensize.getHeight()*91/100)));
-        //60
+        //80
 	}
 	
 	//**** GETTERS ****//	
@@ -248,8 +243,6 @@ public class Ecran extends JPanel {
 	public int getxMenu() {return xMenu;}
 	
 	public int getxMenuBas() {return xMenuBas;}
-	
-	public int getxRuine1() {return xRuine1;}
 	
 	public int getDefaultSize() {return defaultSize;}
 	
@@ -274,9 +267,7 @@ public class Ecran extends JPanel {
 	
 	public void setxMenu(int xMenu) {this.xMenu=xMenu;}
 	
-	public void setxMenuBas(int xMenuBas) {this.xMenu=xMenuBas;}
-	
-	public void setxRuine1(int xRuine1) {this.xMenu=xRuine1;}
+	public void setxMenuBas(int xMenuBas) {this.xMenuBas=xMenuBas;}
 	
 	public void setTabObjets(List<ObjetAffiche> liste) {this.tabObjets = liste;}
 	
