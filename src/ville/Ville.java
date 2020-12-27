@@ -51,7 +51,7 @@ public class Ville {
 		batiments.add(new Ruine((int) (main.screensize.getWidth()*50/100), (int) (main.screensize.getHeight()*60/100)));
 		batiments.add(new Ruine((int) (main.screensize.getWidth()*110/100), (int) (main.screensize.getHeight()*55/100)));
 		//Vieille Tour
-		batiments.add(new VieilleTour((int) (main.screensize.getWidth()*24/100), (int) (main.screensize.getHeight()*30/100)));
+		batiments.add(new VieilleTour((int) (main.screensize.getWidth()*23.75/100), (int) (main.screensize.getHeight()*30/100)));
 	}
 	
 	/**
