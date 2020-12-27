@@ -82,6 +82,9 @@ public class Ecran extends JPanel {
         this.setFocusable(true);  
 		this.requestFocusInWindow();
 		this.addKeyListener(new ClavierListener());
+		this.addMouseListener(null);
+		
+		this.setLayout(null);
 		
 		this.defaultSize = (int) main.screensize.getWidth();
 		
@@ -124,6 +127,37 @@ public class Ecran extends JPanel {
  		}
  		//Afficher les bâtiments
  		for(ObjetAffiche objet : Ville.getBatiments()) {
+ 			this.add(objet);
+// 			g2.drawImage(objet.getImgObjet(), objet.getX(), objet.getY(), objet.getLargeur(), objet.getHauteur(), null);
+ 		}
+ 		revalidate();
+ 		
+ 		//Afficher les menus
+ 		//laisser en dernier
+ 		g2.drawImage(this.imgMenu, this.xMenu, 0, (int) screenSize.getWidth(), (int) screenSize.getHeight()*17/100, null);
+ 		g2.drawImage(this.imgMenuBas, this.xMenuBas, this.yMenuBas, (int) screenSize.getWidth(), (int) screenSize.getHeight()*15/100, null);
+ 		
+	}
+	
+	@Override
+	public void update(Graphics g) {
+ 		super.update(g);
+ 		Graphics g2 = (Graphics2D) g;
+ 		
+ 		this.deplacement();
+ 		
+ 		g2.drawImage(this.imgFond1, this.xFond1, 0, defaultSize*2, (int) screenSize.getHeight(), null);
+ 		g2.drawImage(this.imgFond2, this.xFond2, 0, defaultSize*3, (int) screenSize.getHeight(), null);
+ 		g2.drawImage(this.imgFond3, this.xFond3, 0, defaultSize*4, (int) screenSize.getHeight(), null);
+ 		g2.drawImage(this.imgFond4, this.xFond4, 0, defaultSize*5, (int) screenSize.getHeight(), null);
+ 		g2.drawImage(this.imgPremierPlan, this.xPremierPlan, 0, defaultSize*6, (int) screenSize.getHeight(), null);
+		
+ 		//Afficher les objets du décor
+ 		for(ObjetAffiche objet : tabObjets) {
+ 			g2.drawImage(objet.getImgObjet(), objet.getX(), objet.getY(), objet.getLargeur(), objet.getHauteur(), null);
+ 		}
+ 		//Afficher les bâtiments
+ 		for(ObjetAffiche objet : Ville.getBatiments()) {
  			g2.drawImage(objet.getImgObjet(), objet.getX(), objet.getY(), objet.getLargeur(), objet.getHauteur(), null);
  		}
  		
@@ -134,6 +168,9 @@ public class Ecran extends JPanel {
  		
 	}
 	
+	/**
+	 * Pour faire la forêt
+	 */
 	public void createArbres() {
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*80/100), (int) (main.screensize.getHeight()*40/100)));
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*81/100), (int) (main.screensize.getHeight()*40/100)));

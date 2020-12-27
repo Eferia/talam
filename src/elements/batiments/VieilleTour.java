@@ -10,14 +10,17 @@ import ville.Ville;
  *
  */
 public class VieilleTour extends Batiment {
+	
+	private String tour0 = "/assets/images/batiments/tour0.png";
 
 	public VieilleTour() {
 		super("Vieille Tour", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1);
 		//Bâtiment d'histoire
 		this.setDestructible(false);
 		this.setDescription("Une tour mystérieuse qui surplombe la ville, que l'on peut apercevoir lorsque le brouillard se lève. #mystere #magie #ruinedanslebrouillard");
-		this.icoObjet = new ImageIcon(getClass().getResource("/assets/images/batiments/tour0.png"));
-		this.imgObjet = icoObjet.getImage();
+		this.icoObjetNoClick = resizeToFit(tour0);
+		this.icoObjetClick = resizeToFit(tour0);
+		this.setIcon(icoObjet);
 	}
 	
 	public VieilleTour(int x, int y, int hauteur, int largeur) {
@@ -25,8 +28,9 @@ public class VieilleTour extends Batiment {
 		//Bâtiment d'histoire
 		this.setDestructible(false);
 		this.setDescription("Une tour mystérieuse qui surplombe la ville, que l'on peut apercevoir lorsque le brouillard se lève. #mystere #magie #ruinedanslebrouillard");
-		icoObjet = new ImageIcon(getClass().getResource("/assets/images/batiments/tour0.png"));
-		imgObjet = icoObjet.getImage();
+		this.icoObjetNoClick = resizeToFit(tour0);
+		this.icoObjetClick = resizeToFit(tour0);
+		this.setIcon(icoObjet);
 	}
 	
 	public VieilleTour(int x, int y) {
@@ -35,8 +39,9 @@ public class VieilleTour extends Batiment {
 		this.largeur=(int) (largeurBase*2.5);
 		this.setDestructible(false);
 		this.setDescription("Une tour mystérieuse qui surplombe la ville, que l'on peut apercevoir lorsque le brouillard se lève. #mystere #magie #ruinedanslebrouillard");
-		icoObjet = new ImageIcon(getClass().getResource("/assets/images/batiments/tour0.png"));
-		imgObjet = icoObjet.getImage();
+		this.icoObjetNoClick = resizeToFit(tour0);
+		this.icoObjetClick = resizeToFit(tour0);
+		this.setIcon(icoObjet);
 	}
 	
 	

@@ -26,6 +26,7 @@ public class ClavierListener implements KeyListener {
         		main.ecran.setxPremierPlan(0);
         	}
 		}else if(e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_Q ){	
+			//TODO l'erreur des objets qui se déplacent vient peut-être d'ici
 			main.ecran.setDx(-1);
 			if(main.ecran.getxPos() == posMax+1){ 
         		main.ecran.setxPos(posMax);

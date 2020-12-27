@@ -1,6 +1,7 @@
 package elements.monde;
 
 import elements.ObjetAffiche;
+import main.main;
 
 public abstract class Placable extends ObjetAffiche {
 
@@ -10,6 +11,11 @@ public abstract class Placable extends ObjetAffiche {
 	
 	protected Placable(int x, int y) {
 		super(x, y);
+	}
+	
+	@Override
+	public void deplacement() {
+		this.setX(this.getX() - 5*main.ecran.getDx());
 	}
 
 }

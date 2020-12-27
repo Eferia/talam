@@ -7,8 +7,8 @@ public class Arbre extends Placable {
 	public Arbre(int x, int y) {
 		super(x, y);
 		Double toss = Math.random();
-		this.hauteur=(int) (hauteurBase*2);
-		this.largeur=(int) (largeurBase*1);
+		this.hauteur=hauteurBase*2;
+		this.largeur=largeurBase*1;
 		if(toss<0.3) {
 			this.icoObjet = new ImageIcon(getClass().getResource("/assets/images/ressources/arbre1.png"));
 		} else if (toss<0.6) {

@@ -1,5 +1,11 @@
 package elements.batiments;
 
+import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.ImageIcon;
+
 import elements.ObjetAffiche;
 import ressources.Ressource;
 import ville.Ville;
@@ -7,6 +13,12 @@ import ville.Ville;
 public abstract class Batiment extends ObjetAffiche {
 	
 	private String nom;
+	
+	//image en cas de clic/non clic
+	protected Image imgObjetNoClick;
+	protected ImageIcon icoObjetNoClick;
+	protected Image imgObjetClick;
+	protected ImageIcon icoObjetClick;
 	
 	//ressources
 	private int coutBois;
@@ -33,6 +45,37 @@ public abstract class Batiment extends ObjetAffiche {
 		this.setTempsConstruction(tempsConstruction);
 		this.attractivite=attractivite;
 		this.description="Ceci n'est pas un(e) "+nom;
+		this.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				Batiment.this.imgObjet=Batiment.this.imgObjetClick;
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				Batiment.this.imgObjet=Batiment.this.imgObjetNoClick;
+			}
+			
+		});
 	}
 	
 	protected Batiment(String nom, int x, int y, int coutBois, int coutAcier, int coutPierre, int durabilite, int tempsConstruction, int attractivite) {
@@ -45,6 +88,36 @@ public abstract class Batiment extends ObjetAffiche {
 		this.setTempsConstruction(tempsConstruction);
 		this.attractivite=attractivite;
 		this.description="Ceci n'est pas un(e) "+nom;
+		this.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("clic");
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				Batiment.this.setIcon(Batiment.this.icoObjetClick);
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				Batiment.this.setIcon(Batiment.this.icoObjetNoClick);
+			}
+			
+		});
 	}
 	
 	public int degat(int degats) {
@@ -112,6 +185,22 @@ public abstract class Batiment extends ObjetAffiche {
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public Image getImgObjetClick() {
+		return imgObjetClick;
+	}
+
+	public void setImgObjetClick(Image imgObjetClick) {
+		this.imgObjetClick = imgObjetClick;
+	}
+
+	public ImageIcon getIcoObjetClick() {
+		return icoObjetClick;
+	}
+
+	public void setIcoObjetClick(ImageIcon icoObjetClick) {
+		this.icoObjetClick = icoObjetClick;
 	}
 
 	public int getCoutBois() {

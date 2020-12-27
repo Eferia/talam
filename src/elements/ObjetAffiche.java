@@ -1,14 +1,23 @@
 package elements;
 
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 import main.main;
 
-public abstract class ObjetAffiche {
+public abstract class ObjetAffiche extends JLabel {
 	
-	//**** VARIABLES ****//
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4188871400191346268L;
+		//**** VARIABLES ****//
 		 //dimensions de l'objet
 		protected int x, y; //position de l'objet	
 		protected Image imgObjet;
@@ -21,15 +30,21 @@ public abstract class ObjetAffiche {
 		
 		//**** CONSTRUCTEUR ****//	
 		protected ObjetAffiche(int x, int y, int largeur, int hauteur){		
+			super();
 		    this.x = x;
 			this.y = y;
 			this.largeur = largeur;
 			this.hauteur = hauteur;
+			this.setBounds(x, y, largeur, hauteur);
+			this.setLocation(x, y);
 		}
 		
-		protected ObjetAffiche(int x, int y){		
+		protected ObjetAffiche(int x, int y){	
+			super();
 		    this.x = x;
 			this.y = y;
+			this.setBounds(x, y, largeur, hauteur);
+			this.setLocation(x, y);
 		}
 		
 		
@@ -54,10 +69,19 @@ public abstract class ObjetAffiche {
 
 		public void setHaut(int hauteur) {this.hauteur = hauteur;}
 		
+		public void setImgObjet(Image image) {this.imgObjet = image;}
+		
 		
 		//**** METHODES ****//
 		public void deplacement() {
 			this.setX(this.getX() - 5*main.ecran.getDx());
+			this.setBounds(x, y, largeur, hauteur);
+		}
+		
+		public ImageIcon resizeToFit(String file) {
+			System.out.println("resizing "+file+" to "+hauteur+", "+largeur);
+//			return new ImageIcon(getClass().getResource(file));
+			return new ImageIcon(new ImageIcon(getClass().getResource(file)).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 		}
 
 }
