@@ -7,3 +7,6 @@ menu de droite: 100px
 espace vide: 62px
 
 total:4050px
+
+
+Couleur bordures / texte: rgb(196, 181, 144)
