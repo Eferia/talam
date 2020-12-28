@@ -2,6 +2,11 @@ package elements.monde;
 
 import javax.swing.ImageIcon;
 
+/**
+ * Un arbre.
+ * @author alexandre
+ *
+ */
 public class Arbre extends Placable {
 
 	public Arbre(int x, int y) {

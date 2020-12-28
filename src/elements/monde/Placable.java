@@ -3,6 +3,11 @@ package elements.monde;
 import elements.ObjetAffiche;
 import main.main;
 
+/**
+ * Réprésente tous les éléments plaçables mais pas cliquables du jeu (arbres, rochers, étendues d'eau, etc...)
+ * @author alexandre
+ *
+ */
 public abstract class Placable extends ObjetAffiche {
 
 	protected Placable(int x, int y, int largeur, int hauteur) {

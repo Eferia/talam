@@ -1,47 +1,52 @@
 package elements.batiments;
 
-import javax.swing.ImageIcon;
-
 import ville.Ville;
 
 /**
- * La vieille tour en ruine à reconstruire
+ * La vieille tour en ruine à reconstruire pour débloque la magie
  * @author alexandre
  *
  */
 public class VieilleTour extends Batiment {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4906801708657722326L;
 	private String tour0 = "/assets/images/batiments/tour0.png";
+	
+	private static String nom = "Vieille Tour";
+	private String descriptionR = "Une tour mystérieuse qui surplombe la ville, que l'on peut apercevoir lorsque le brouillard se lève. #mystere #magie #ruinedanslebrouillard";
 
 	public VieilleTour() {
-		super("Vieille Tour", 0, 0, 0, 0, 0, 0, 0, 0, 0, 1);
+		super(nom, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1);
 		//Bâtiment d'histoire
 		this.setDestructible(false);
-		this.setDescription("Une tour mystérieuse qui surplombe la ville, que l'on peut apercevoir lorsque le brouillard se lève. #mystere #magie #ruinedanslebrouillard");
+		this.setDescription(descriptionR);
 		this.icoObjetNoClick = resizeToFit(tour0);
 		this.icoObjetClick = resizeToFit(tour0);
-		this.setIcon(icoObjet);
+		this.setIcon(icoObjetNoClick);
 	}
 	
 	public VieilleTour(int x, int y, int hauteur, int largeur) {
-		super("Vieille Tour", x, y, hauteur, largeur, 0, 0, 0, 0, 0, 1);
+		super(nom, x, y, hauteur, largeur, 0, 0, 0, 0, 0, 1);
 		//Bâtiment d'histoire
 		this.setDestructible(false);
-		this.setDescription("Une tour mystérieuse qui surplombe la ville, que l'on peut apercevoir lorsque le brouillard se lève. #mystere #magie #ruinedanslebrouillard");
+		this.setDescription(descriptionR);
 		this.icoObjetNoClick = resizeToFit(tour0);
 		this.icoObjetClick = resizeToFit(tour0);
-		this.setIcon(icoObjet);
+		this.setIcon(icoObjetNoClick);
 	}
 	
 	public VieilleTour(int x, int y) {
-		super("Ruine", x, y, 0, 0, 0, 0, 0, 1);
+		super(nom, x, y, 0, 0, 0, 0, 0, 1);
 		this.hauteur=(int) (hauteurBase*4);
 		this.largeur=(int) (largeurBase*2.5);
 		this.setDestructible(false);
-		this.setDescription("Une tour mystérieuse qui surplombe la ville, que l'on peut apercevoir lorsque le brouillard se lève. #mystere #magie #ruinedanslebrouillard");
+		this.setDescription(descriptionR);
 		this.icoObjetNoClick = resizeToFit(tour0);
 		this.icoObjetClick = resizeToFit(tour0);
-		this.setIcon(icoObjet);
+		this.setIcon(icoObjetNoClick);
 	}
 	
 	

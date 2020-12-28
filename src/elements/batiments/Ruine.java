@@ -1,10 +1,5 @@
 package elements.batiments;
 
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-
-import javax.swing.ImageIcon;
-
 import ville.Ville;
 
 /**
@@ -14,13 +9,21 @@ import ville.Ville;
  */
 public class Ruine extends Batiment {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7231480429307725299L;
 	private String image1 = "/assets/images/batiments/ruine1.png";
 	private String imageClick1 = "/assets/images/batiments/ruine1Click.png";
 	private String image2 = "/assets/images/batiments/ruine2.png";
 	private String imageClick2 = "/assets/images/batiments/ruine2Click.png";
 	
+	private static String nom = "Ruine";
+	
+	private String descriptionR = "Cela a sûrement été une maison, mais c'est inhabitable";
+	
 	public Ruine() {
-		super("Ruine", 0, 0, 0, 0,  20, 10, 30, 1000, 0, 0);
+		super(nom, 0, 0, 0, 0,  20, 10, 30, 1000, 0, 0);
 		if(Math.random() <0.5) {
 			this.icoObjetNoClick = resizeToFit(image1);
 			this.icoObjetClick = resizeToFit(imageClick1);
@@ -30,10 +33,11 @@ public class Ruine extends Batiment {
 		}
 		this.icoObjet = icoObjetNoClick;
 		this.setIcon(icoObjet);
+		this.description = descriptionR;
 	}
 	
 	public Ruine(int x, int y, int hauteur, int largeur) {
-		super("Ruine", x, y, hauteur, largeur, 20, 10, 30, 1000, 0, 0);
+		super(nom, x, y, hauteur, largeur, 20, 10, 30, 1000, 0, 0);
 		if(Math.random() <0.5) {
 			this.icoObjetNoClick = resizeToFit(image1);
 			this.icoObjetClick = resizeToFit(imageClick1);
@@ -44,10 +48,11 @@ public class Ruine extends Batiment {
 		this.icoObjet = icoObjetNoClick;
 		this.setIcon(icoObjet);
 		this.setSize(largeur, hauteur);
+		this.description = descriptionR;
 	}
 	
 	public Ruine(int x, int y) {
-		super("Ruine", x, y, 20, 10, 30, 1000, 0, 0);
+		super(nom, x, y, 20, 10, 30, 1000, 0, 0);
 		if(Math.random() <0.5) {
 			this.icoObjetNoClick = resizeToFit(image1);
 			this.icoObjetClick = resizeToFit(imageClick1);
@@ -57,6 +62,7 @@ public class Ruine extends Batiment {
 		}
 		this.icoObjet = icoObjetNoClick;
 		this.setIcon(icoObjet);
+		this.description = descriptionR;
 	}
 	
 	@Override

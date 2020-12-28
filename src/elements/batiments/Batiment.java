@@ -10,8 +10,18 @@ import elements.ObjetAffiche;
 import ressources.Ressource;
 import ville.Ville;
 
+/**
+ * Classe qui gère les bâtiments, avec notamment le MouseListener
+ * @author alexandre
+ *
+ */
 public abstract class Batiment extends ObjetAffiche {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2678282152012055260L;
+
 	private String nom;
 	
 	//image en cas de clic/non clic
@@ -33,7 +43,7 @@ public abstract class Batiment extends ObjetAffiche {
 	//un seul bâtiment ne sera pas destructible
 	private boolean isDestructible = true;
 	
-	private String description;
+	protected String description;
 	
 	protected Batiment(String nom, int x, int y, int largeur, int hauteur, int coutBois, int coutAcier, int coutPierre, int durabilite, int tempsConstruction, int attractivite) {
 		super(x, y, largeur, hauteur);
@@ -45,37 +55,7 @@ public abstract class Batiment extends ObjetAffiche {
 		this.setTempsConstruction(tempsConstruction);
 		this.attractivite=attractivite;
 		this.description="Ceci n'est pas un(e) "+nom;
-		this.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				Batiment.this.imgObjet=Batiment.this.imgObjetClick;
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				Batiment.this.imgObjet=Batiment.this.imgObjetNoClick;
-			}
-			
-		});
+		this.addMouseListener(new BatimentListener());
 	}
 	
 	protected Batiment(String nom, int x, int y, int coutBois, int coutAcier, int coutPierre, int durabilite, int tempsConstruction, int attractivite) {
@@ -88,36 +68,7 @@ public abstract class Batiment extends ObjetAffiche {
 		this.setTempsConstruction(tempsConstruction);
 		this.attractivite=attractivite;
 		this.description="Ceci n'est pas un(e) "+nom;
-		this.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				System.out.println("clic");
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				Batiment.this.setIcon(Batiment.this.icoObjetClick);
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				Batiment.this.setIcon(Batiment.this.icoObjetNoClick);
-			}
-			
-		});
+		this.addMouseListener(new BatimentListener());
 	}
 	
 	public int degat(int degats) {
@@ -265,6 +216,42 @@ public abstract class Batiment extends ObjetAffiche {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	/**
+	 * MouseListener pour les bâtiments
+	 * @author alexandre
+	 *
+	 */
+	private class BatimentListener implements MouseListener{
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			System.out.println("clic");
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			Batiment.this.setIcon(Batiment.this.icoObjetClick);
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			Batiment.this.setIcon(Batiment.this.icoObjetNoClick);
+		}
+		
 	}
 	
 

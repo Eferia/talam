@@ -125,10 +125,10 @@ public class Ecran extends JPanel {
  		for(ObjetAffiche objet : tabObjets) {
  			g2.drawImage(objet.getImgObjet(), objet.getX(), objet.getY(), objet.getLargeur(), objet.getHauteur(), null);
  		}
+ 		
  		//Afficher les bâtiments
  		for(ObjetAffiche objet : Ville.getBatiments()) {
  			this.add(objet);
-// 			g2.drawImage(objet.getImgObjet(), objet.getX(), objet.getY(), objet.getLargeur(), objet.getHauteur(), null);
  		}
  		revalidate();
  		
@@ -169,7 +169,7 @@ public class Ecran extends JPanel {
 	}
 	
 	/**
-	 * Pour faire la forêt
+	 * 80 arbres pour faire la forêt
 	 */
 	public void createArbres() {
         tabObjets.add(new Arbre((int) (main.screensize.getWidth()*80/100), (int) (main.screensize.getHeight()*40/100)));

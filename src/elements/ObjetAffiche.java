@@ -1,16 +1,17 @@
 package elements;
 
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import main.main;
 
+/**
+ * Gère tous les objets affichés.
+ * JLabel sert surtout pour les bâtiments
+ * @author alexandre
+ *
+ */
 public abstract class ObjetAffiche extends JLabel {
 	
 	/**
@@ -22,7 +23,13 @@ public abstract class ObjetAffiche extends JLabel {
 		protected int x, y; //position de l'objet	
 		protected Image imgObjet;
 		protected ImageIcon icoObjet;
+		/**
+		 * hauteur de base, 5% de la hauteur de l'écran
+		 */
 		protected int hauteurBase = (int) (main.screensize.getHeight()*5/100);
+		/**
+		 * largeur de base, 5% de la largeur de l'écran
+		 */
 		protected int largeurBase = (int) (main.screensize.getWidth()*5/100);
 		protected int largeur = largeurBase;
 		protected int hauteur = hauteurBase;
@@ -73,11 +80,19 @@ public abstract class ObjetAffiche extends JLabel {
 		
 		
 		//**** METHODES ****//
+		/**
+		 * Assure le déplacement pour sembler fixe à l'écran
+		 */
 		public void deplacement() {
 			this.setX(this.getX() - 5*main.ecran.getDx());
 			this.setBounds(x, y, largeur, hauteur);
 		}
 		
+		/**
+		 * Crée l'image à afficher à partir d'un fichier
+		 * @param file Image à utiliser
+		 * @return Icone utilisable par JLabel
+		 */
 		public ImageIcon resizeToFit(String file) {
 			System.out.println("resizing "+file+" to "+hauteur+", "+largeur);
 //			return new ImageIcon(getClass().getResource(file));
