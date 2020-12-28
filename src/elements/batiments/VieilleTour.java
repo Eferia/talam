@@ -25,7 +25,8 @@ public class VieilleTour extends Batiment {
 		this.setDescription(descriptionR);
 		this.icoObjetNoClick = resizeToFit(tour0);
 		this.icoObjetClick = resizeToFit(tour0);
-		this.setIcon(icoObjetNoClick);
+		this.icoObjet = icoObjetNoClick;
+		this.setIcon(icoObjet);
 	}
 	
 	public VieilleTour(int x, int y, int hauteur, int largeur) {
@@ -35,7 +36,8 @@ public class VieilleTour extends Batiment {
 		this.setDescription(descriptionR);
 		this.icoObjetNoClick = resizeToFit(tour0);
 		this.icoObjetClick = resizeToFit(tour0);
-		this.setIcon(icoObjetNoClick);
+		this.icoObjet = icoObjetNoClick;
+		this.setIcon(icoObjet);
 	}
 	
 	public VieilleTour(int x, int y) {
@@ -46,7 +48,8 @@ public class VieilleTour extends Batiment {
 		this.setDescription(descriptionR);
 		this.icoObjetNoClick = resizeToFit(tour0);
 		this.icoObjetClick = resizeToFit(tour0);
-		this.setIcon(icoObjetNoClick);
+		this.icoObjet = icoObjetNoClick;
+		this.setIcon(icoObjet);
 	}
 	
 	
