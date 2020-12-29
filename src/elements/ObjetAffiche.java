@@ -98,5 +98,17 @@ public abstract class ObjetAffiche extends JLabel {
 //			return new ImageIcon(getClass().getResource(file));
 			return new ImageIcon(new ImageIcon(getClass().getResource(file)).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
 		}
+		
+		/**
+		 * Crée l'image à afficher à partir d'un fichier
+		 * @param file Image à utiliser
+		 * @param largeur Largeur du JLabel
+		 * @param hauteur Hauteur du JLabel
+		 * @return Icone utilisable par JLabel
+		 */
+		public ImageIcon resizeToFit(String file, int largeur, int hauteur) {
+			System.out.println("resizing "+file+" to "+hauteur+", "+largeur);
+			return new ImageIcon(new ImageIcon(getClass().getResource(file)).getImage().getScaledInstance(largeur, hauteur, Image.SCALE_DEFAULT));
+		}
 
 }

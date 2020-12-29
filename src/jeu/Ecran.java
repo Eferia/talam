@@ -12,6 +12,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import elements.ObjetAffiche;
+import elements.batiments.Batiment;
 import elements.monde.Arbre;
 import main.main;
 import ville.Ville;
@@ -127,8 +128,13 @@ public class Ecran extends JPanel {
  		}
  		
  		//Afficher les bâtiments
- 		for(ObjetAffiche objet : Ville.getBatiments()) {
+ 		for(Batiment objet : Ville.getBatiments()) {
  			this.add(objet);
+ 			if(objet.isAfficheFiche()) {
+ 				this.add(objet.getFiche());
+ 			} else {
+ 				this.remove(objet.getFiche());
+ 			}
  		}
  		revalidate();
  		

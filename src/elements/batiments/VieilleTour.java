@@ -1,5 +1,6 @@
 package elements.batiments;
 
+import elements.batiments.fiche.FicheBatiment;
 import ville.Ville;
 
 /**
@@ -27,6 +28,7 @@ public class VieilleTour extends Batiment {
 		this.icoObjetClick = resizeToFit(tour0);
 		this.icoObjet = icoObjetNoClick;
 		this.setIcon(icoObjet);
+		setFiche();
 	}
 	
 	public VieilleTour(int x, int y, int hauteur, int largeur) {
@@ -38,6 +40,7 @@ public class VieilleTour extends Batiment {
 		this.icoObjetClick = resizeToFit(tour0);
 		this.icoObjet = icoObjetNoClick;
 		this.setIcon(icoObjet);
+		setFiche();
 	}
 	
 	public VieilleTour(int x, int y) {
@@ -50,6 +53,7 @@ public class VieilleTour extends Batiment {
 		this.icoObjetClick = resizeToFit(tour0);
 		this.icoObjet = icoObjetNoClick;
 		this.setIcon(icoObjet);
+		setFiche();
 	}
 	
 	

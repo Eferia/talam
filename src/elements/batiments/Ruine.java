@@ -1,5 +1,6 @@
 package elements.batiments;
 
+import elements.batiments.fiche.FicheBatiment;
 import ville.Ville;
 
 /**
@@ -34,6 +35,7 @@ public class Ruine extends Batiment {
 		this.icoObjet = icoObjetNoClick;
 		this.setIcon(icoObjet);
 		this.description = descriptionR;
+		setFiche();
 	}
 	
 	public Ruine(int x, int y, int hauteur, int largeur) {
@@ -49,6 +51,7 @@ public class Ruine extends Batiment {
 		this.setIcon(icoObjet);
 		this.setSize(largeur, hauteur);
 		this.description = descriptionR;
+		setFiche();
 	}
 	
 	public Ruine(int x, int y) {
@@ -63,6 +66,7 @@ public class Ruine extends Batiment {
 		this.icoObjet = icoObjetNoClick;
 		this.setIcon(icoObjet);
 		this.description = descriptionR;
+		setFiche();
 	}
 	
 	@Override

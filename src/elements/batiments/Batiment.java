@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 
 import elements.ObjetAffiche;
+import elements.batiments.fiche.FicheBatiment;
 import ressources.Ressource;
 import ville.Ville;
 
@@ -29,6 +30,9 @@ public abstract class Batiment extends ObjetAffiche {
 	protected ImageIcon icoObjetNoClick;
 	protected Image imgObjetClick;
 	protected ImageIcon icoObjetClick;
+	
+	//détails à afficher en cas de clic
+	protected FicheBatiment fiche;
 	
 	//ressources
 	private int coutBois;
@@ -116,6 +120,14 @@ public abstract class Batiment extends ObjetAffiche {
 		}
 	}
 	
+	/**
+	 * Crée la fiche du bâtiment<br>
+	 * Nécessite que la description et l'image soient initialisés
+	 */
+	public void setFiche() {
+		this.fiche = new FicheBatiment(x, y, description, icoObjetNoClick);
+	}
+	
 	
 	/**
 	 * Applique les effets de construction d'un bâtiment.
@@ -152,6 +164,14 @@ public abstract class Batiment extends ObjetAffiche {
 
 	public void setIcoObjetClick(ImageIcon icoObjetClick) {
 		this.icoObjetClick = icoObjetClick;
+	}
+	
+	public boolean isAfficheFiche() {
+		return this.fiche.isAffiche();
+	}
+	
+	public FicheBatiment getFiche() {
+		return this.fiche;
 	}
 
 	public int getCoutBois() {
@@ -227,7 +247,13 @@ public abstract class Batiment extends ObjetAffiche {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
-			System.out.println("clic");
+			int x = e.getXOnScreen();
+			int y = e.getYOnScreen();
+			Batiment.this.fiche.setX(x);
+			Batiment.this.fiche.setY(y);
+			Batiment.this.fiche.setBounds(x, y, Batiment.this.fiche.getLargeurFiche(), Batiment.this.fiche.getHauteurFiche());
+			Batiment.this.fiche.setLocation(x, y);
+			Batiment.this.fiche.toggleIsAffiche();
 		}
 
 		@Override
