@@ -59,12 +59,16 @@ public class FicheBatiment extends ObjetAffiche {
 	private Font getFonte() {
 		Font fonte = new Font("Arial", Font.ITALIC, 15);
 		try {
-			 fonte = Font.createFont(Font.TRUETYPE_FONT, new File(url.getPath()));
+//			File fichierFonte = new File();
+//			fichierFonte.setReadable(true);
+			 fonte = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/assets/images/RINGM__.TTF"));
 			 fonte = fonte.deriveFont((float) 15);
 		} catch (FontFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
+			System.out.println(new File(url.getPath()).getAbsolutePath());
+			System.out.println(new File(url.getPath()).canRead());
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
