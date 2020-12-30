@@ -5,7 +5,6 @@ import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
@@ -33,7 +32,7 @@ public class FicheBatiment extends ObjetAffiche {
 	private int hauteurFiche=hauteurBase*3;
 
 	private String visuelFenetre = "/assets/images/ficheBatiment.png";
-	URL url = getClass().getResource("/assets/images/RINGM__.TTF");
+	private String cheminFonte = "/assets/images/RINGM__.TTF";
 
 	protected FicheBatiment(int x, int y) {
 		super(x, y);
@@ -59,16 +58,12 @@ public class FicheBatiment extends ObjetAffiche {
 	private Font getFonte() {
 		Font fonte = new Font("Arial", Font.ITALIC, 15);
 		try {
-//			File fichierFonte = new File();
-//			fichierFonte.setReadable(true);
-			 fonte = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/assets/images/RINGM__.TTF"));
+			 fonte = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream(cheminFonte));
 			 fonte = fonte.deriveFont((float) 15);
 		} catch (FontFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			System.out.println(new File(url.getPath()).getAbsolutePath());
-			System.out.println(new File(url.getPath()).canRead());
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
