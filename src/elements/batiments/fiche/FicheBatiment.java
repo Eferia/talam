@@ -1,5 +1,6 @@
 package elements.batiments.fiche;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.event.MouseEvent;
@@ -9,6 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 import elements.ObjetAffiche;
 import main.main;
@@ -46,16 +48,19 @@ public class FicheBatiment extends ObjetAffiche {
 		this.setIcon(icoObjet);
 		this.setFont(getFonte());
 		this.setText(texte);
+		this.setForeground(Color.white);
+		this.setHorizontalTextPosition(JLabel.CENTER);
+		this.setVerticalTextPosition(JLabel.CENTER);
 		this.addMouseListener(new FicheListener());
 	}
 	
 	//TODO centrer la fiche, une seule fiche à la fois
 	
 	private Font getFonte() {
-		Font fonte = new Font("Arial", Font.ITALIC, 20);
+		Font fonte = new Font("Arial", Font.ITALIC, 15);
 		try {
 			 fonte = Font.createFont(Font.TRUETYPE_FONT, new File(url.getPath()));
-			 fonte.deriveFont(20);
+			 fonte = fonte.deriveFont((float) 15);
 		} catch (FontFormatException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
