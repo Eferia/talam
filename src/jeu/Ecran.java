@@ -131,9 +131,7 @@ public class Ecran extends JPanel {
  		for(Batiment objet : Ville.getBatiments()) {
  			this.add(objet);
  			if(objet.isAfficheFiche()) {
- 				this.add(objet.getFiche());
- 			} else {
- 				this.remove(objet.getFiche());
+ 				objet.getFiche().paintComponents(g);
  			}
  		}
  		revalidate();
