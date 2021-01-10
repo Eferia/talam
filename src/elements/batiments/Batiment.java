@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 
 import elements.ObjetAffiche;
 import elements.batiments.fiche.FicheBatiment;
+import elements.batiments.fiche.FicheBatiment2;
 import ressources.Ressource;
 import ville.Ville;
 
@@ -32,7 +33,7 @@ public abstract class Batiment extends ObjetAffiche {
 	protected ImageIcon icoObjetClick;
 	
 	//détails à afficher en cas de clic
-	protected FicheBatiment fiche;
+	protected FicheBatiment2 fiche;
 	
 	//ressources
 	private int coutBois;
@@ -125,7 +126,7 @@ public abstract class Batiment extends ObjetAffiche {
 	 * Nécessite que la description et l'image soient initialisés
 	 */
 	public void setFiche() {
-		this.fiche = new FicheBatiment(x, y, description, icoObjetNoClick);
+		this.fiche = new FicheBatiment2(x, y, nom, description, icoObjetNoClick);
 	}
 	
 	
@@ -170,7 +171,7 @@ public abstract class Batiment extends ObjetAffiche {
 		return this.fiche.isAffiche();
 	}
 	
-	public FicheBatiment getFiche() {
+	public FicheBatiment2 getFiche() {
 		return this.fiche;
 	}
 
@@ -249,11 +250,12 @@ public abstract class Batiment extends ObjetAffiche {
 		public void mouseClicked(MouseEvent e) {
 			int x = e.getXOnScreen();
 			int y = e.getYOnScreen();
-			Batiment.this.fiche.setX(x);
-			Batiment.this.fiche.setY(y);
-			Batiment.this.fiche.setBounds(x, y, Batiment.this.fiche.getLargeurFiche(), Batiment.this.fiche.getHauteurFiche());
+//			Batiment.this.fiche.setX(x);
+//			Batiment.this.fiche.setY(y);
+			Batiment.this.fiche.setBounds(x, y, Batiment.this.fiche.getLargeur(), Batiment.this.fiche.getHauteur());
 			Batiment.this.fiche.setLocation(x, y);
 			Batiment.this.fiche.toggleIsAffiche();
+			Batiment.this.fiche.setVisible(Batiment.this.fiche.isAffiche());
 		}
 
 		@Override

@@ -10,6 +10,7 @@ import ville.Ville;
 
 public class main {
 	
+	public static JFrame fenetre;
 	public static Ecran ecran;
 	public static Ville ville;
 	public static Dimension screensize;
@@ -74,7 +75,7 @@ public class main {
 		
 		screensize = Toolkit.getDefaultToolkit().getScreenSize();
 		
-		JFrame fenetre = new JFrame("The PouiGame");
+		fenetre = new JFrame("The PouiGame");
 		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fenetre.setSize((int) screensize.getWidth(), (int) screensize.getHeight());
 		fenetre.setLocationRelativeTo(null);
