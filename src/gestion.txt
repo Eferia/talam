@@ -1,0 +1,51 @@
+-------------
+On part avec 5 personnes "normales".
+20 de bois
+15 de pierre
+2 de fer
+30 de nourriture
+
+Chaque personne consomme 1 de nourriture par jour.
+
+COUT DES BATIMENTS:
+
+(au départ, on place les ruines de 4 maisons et 4 ruines indéterminées. On peux donc, au pire, trouver au minimum: 49 bois, 46 pierre sur les premières 24h, donc être sur de construire 2 habitations (30 bois, 20 pierre) sur le jour suivant. Il reste donc 4 jours pour trouver à manger, et on a minimum 39 bois et 41 pierre. On peut donc sans problème construire une ferme par exemple.
+Les ruines de maisons rapportent:
+- bois: 10-15
+- pierre: 10-15
+- fer: 0-3
+Pour un temps de fouille de 24h si 1 personne, 12h si 2 personnes, etc
+
+Les ruines indeterminées rapportent:
+- bois: 3 - 10
+- pierre: 2 - 10
+- fer: 0 - 1
+Pour un temps de fouille de 8h si 1 personne.
+
+
+- habitation: 15 bois, 10 pierre, 2 fer, pour une construction de 24h si 1 personne.
+- ferme 1: 25 bois, 20 pierre. Rapporte 5 nourriture / jour avec 1 personne, 8 avec 2 personnes, 11 avec 3 personnes, 14 avec 4 personnes.
+- ferme 2: 10 bois, 10 pierre, 5 fer. Rendement +2 par personne affectée à la ferme.
+
+LIVRE DE QUETES
+
+1 - Installation
+Ne perdons pas de temps! Pour le moment, la priorité est de reconstruire la ville. Le climat et rude dans la région, et nous ne pouvons nous permettre de camper éternellement. Fouillez les ruines, vous y trouverez le nécessaire pour rebatir. Il nous également songer à nous nourrir, vos réserves ne sont pas éternelles. Une fois que la vie sera revenue à Biriok, nous pourrons parler science et magie.
+
+Objectif: 
+- Fouiller 4 ruines
+- Construire 2 maisons
+- Construire 1 batiment alimentaire
+
+
+2 - Développer la ville
+Parfait! Nous avons paré au plus urgent.J'ai une excellente nouvelle: les gens de la région ont eu vent de ce que nous essayons de faire ici, et certains commencent à revenir. C'est une chance pour nous: il va nous falloir du monde pour développer la ville. Un premier groupe s'est présenté ce matin, je vous les confie. Au fur et à mesure que nous avancerons dans la rénovation de Biriok, je suis certaine que d'autres viendront se joindre à nous!
+--> 6 personnes arrivent
+
+Objectif:
+- Atteindre une population de 30 personnes
+
+
+
+* Manque de nourriture
+Attention! Vos réserves de nourritures sont presque épuisées. Si nous manquons trop, les habitants risquent de quitter la ville, et notre rêve s'effondrera...
